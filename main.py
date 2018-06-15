@@ -30,7 +30,7 @@ class Billpayaccounts(Resource):
             #Get transactions
             print("Get Transactions")
             accesstoken = 'a168b9d8-a12b-3ce6-b693-13df93c20980'
-            url = 'https://nginx0.pncapix.com/Transactions/v2.0.0/transaction?page=0&size=10'
+            url = 'http://nginx0.pncapix.com/Transactions/v2.0.0/transaction?page=0&size=10'
             head = {"Content-Type": "application/json","Accept": "application/json","X-Authorization": jwttoken, "Authorization": "Bearer " + accesstoken}
             response = json.loads(requests.get(url,headers=head).text)
             
