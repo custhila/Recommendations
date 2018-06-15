@@ -12,7 +12,7 @@ class Billpayaccounts(Resource):
         try:
             #Get JWT token
             url = 'https://nginx0.pncapix.com/Security/v2.0.0/login'
-            accesstoken = '21989691-6d87-3c1f-ae14-4aa394fa38ad'
+            accesstoken = '148a1147-af1d-3cc3-9c52-ff2d309a5a46'
             head = {"Content-Type": "application/json","Accept": "application/json","Authorization": "Bearer " + accesstoken}
             data = {"password": "swinds258", "username": "swinds258"}
             response = json.loads(requests.post(url,json=data,headers=head).text)
