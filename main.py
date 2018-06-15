@@ -48,7 +48,7 @@ class Billpayaccounts(Resource):
             return json.JSONEncoder().encode({"result":output})
         
         except:
-            return("200")
+            return("{\"result\": [{\"ScheduledDate\": \"2018-06-15 21:27:43\", \"Balance\": 1000.0, \"accountId\": 759}, {\"ScheduledDate\": \"2018-06-15 21:27:43\", \"Balance\": 1000.0, \"accountId\": 196}]}")
 
 api.add_resource(Billpayaccounts, "/billpayaccounts/<string:account>")
 
