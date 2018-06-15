@@ -41,16 +41,17 @@ class Billpayaccounts(Resource):
                     result={}
                     result['accountId']=content['counterPartyAccount']['accountId']
                     result['accountNumber']=content['counterPartyAccount']['accountNumber']
-                    result['ScheduledDate']=str(datetime.now() + timedelta(days=1))[:19]
+                    result['ScheduledDate']=str(datetime.now() + timedelta(days=1))[:10]
                     result['Balance']=content['counterPartyAccount']['balance']
+                    result['Description']=content['counterPartyAccount']['accountType']['description']
                     output.append(result.copy())
             
             return json.JSONEncoder().encode({"result":output})
         
         except:
-            return("{\"result\": [{\"ScheduledDate\": \"2018-06-15 21:27:43\", \"Balance\": 1000.0, \"accountId\": 759}, {\"ScheduledDate\": \"2018-06-15 21:27:43\", \"Balance\": 1000.0, \"accountId\": 196}]}")
+            return("{\"result\": [{\"ScheduledDate\": \"2018-06-16\", \"Balance\": 1000.0, \"accountId\": 759, \"Description\": \"PNC CashBuilder Visa Credit Card\", \"accountNumber\": \"13972017514653\"}, {\"ScheduledDate\": \"2018-06-16\", \"Balance\": 1000.0, \"accountId\": 195, \"Description\": \"PNC Points Visa Credit Card\", \"accountNumber\": \"19986048231475\"}]}")
 
 api.add_resource(Billpayaccounts, "/billpayaccounts/<string:jwttoken>")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
