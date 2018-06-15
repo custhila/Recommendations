@@ -45,7 +45,7 @@ class Billpayaccounts(Resource):
                     result['Balance']=content['counterPartyAccount']['balance']
                     output.append(result.copy())
             
-        return json.JSONEncoder().encode({"result":output})
+            return json.JSONEncoder().encode({"result":output})
         
         except:
             return("200")
